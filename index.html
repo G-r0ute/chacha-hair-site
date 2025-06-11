@@ -1,0 +1,687 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChaCha Hair - Premium Hair Salon in Nigeria</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
+        
+        :root {
+            --color-primary: #F3D7CA;
+            --color-secondary: #E6A4B4;
+            --color-accent: #C86B85;
+            --color-dark: #513252;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            scroll-behavior: smooth;
+        }
+        
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+        }
+        
+        .hero {
+            background-image: linear-gradient(rgba(243, 215, 202, 0.3), rgba(243, 215, 202, 0.3)), url('https://images.unsplash.com/photo-1621605816781-0c2152f5e805?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .service-card {
+            position: relative;
+            transition: all 0.3s ease;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(201, 107, 133, 0.3);
+        }
+        
+        .testimonial-card {
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-link {
+            position: relative;
+        }
+        
+        .nav-link:after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -2px;
+            left: 0;
+            background-color: var(--color-accent);
+            transition: width 0.3s ease;
+        }
+        
+        .nav-link:hover:after {
+            width: 100%;
+        }
+        
+        .active:after {
+            width: 100%;
+        }
+        
+        /* Loading animation */
+        .loader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s, visibility 0.5s;
+        }
+        
+        .loader.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+        
+        .loader::after {
+            content: "";
+            width: 50px;
+            height: 50px;
+            border: 5px solid #F3D7CA;
+            border-top-color: #C86B85;
+            border-radius: 50%;
+            animation: loading 0.75s ease infinite;
+        }
+        
+        @keyframes loading {
+            from { transform: rotate(0turn); }
+            to { transform: rotate(1turn); }
+        }
+        
+        /* Gallery hover effect */
+        .gallery-item {
+            transition: transform 0.3s ease;
+        }
+        
+        .gallery-item:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="text-gray-700 bg-[#FFF5EE]">
+    <!-- Loading Screen -->
+    <div class="loader"></div>
+
+    <!-- Header/Navigation -->
+    <header class="fixed w-full z-50 bg-white shadow-sm">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <a href="#" class="flex items-center">
+                <span class="text-2xl font-bold text-[#C86B85]">ChaCha</span>
+                <span class="text-2xl font-bold text-[#513252]">Hair</span>
+            </a>
+            
+            <!-- Mobile menu button -->
+            <button id="mobile-menu-button" class="md:hidden text-[#513252]">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+            
+            <!-- Desktop Navigation -->
+            <nav class="hidden md:flex space-x-8">
+                <a href="#home" class="nav-link active">Home</a>
+                <a href="#services" class="nav-link">Services</a>
+                <a href="#gallery" class="nav-link">Gallery</a>
+                <a href="#about" class="nav-link">About</a>
+                <a href="#testimonials" class="nav-link">Reviews</a>
+                <a href="#contact" class="nav-link">Contact</a>
+            </nav>
+        </div>
+        
+        <!-- Mobile Navigation -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white py-3 px-4 shadow-lg">
+            <a href="#home" class="block py-2 nav-link active">Home</a>
+            <a href="#services" class="block py-2 nav-link">Services</a>
+            <a href="#gallery" class="block py-2 nav-link">Gallery</a>
+            <a href="#about" class="block py-2 nav-link">About</a>
+            <a href="#testimonials" class="block py-2 nav-link">Reviews</a>
+            <a href="#contact" class="block py-2 nav-link">Contact</a>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero min-h-screen flex items-center pt-16">
+        <div class="container mx-auto px-4 text-center md:text-left">
+            <div class="max-w-2xl bg-white/80 backdrop-blur-sm p-8 rounded-lg shadow-md">
+                <h1 class="text-4xl md:text-6xl font-bold text-[#513252] mb-4">
+                    Your Hair, <span class="text-[#C86B85]">Our Passion</span>
+                </h1>
+                <p class="text-lg md:text-xl text-[#513252] mb-8">
+                    Welcome to ChaCha Hair, where we transform your hair into stunning works of art. Our skilled stylists provide personalized services to enhance your natural beauty.
+                </p>
+                <a href="#contact" class="bg-[#C86B85] hover:bg-[#E6A4B4] text-white font-semibold py-3 px-8 rounded-full transition-all duration-300 inline-block shadow-lg hover:shadow-xl">
+                    Book Appointment
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-16 bg-[#F8F3F0]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#513252] mb-4">Our Services</h2>
+                <div class="w-24 h-1 bg-[#C86B85] mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md relative">
+                    <div class="absolute top-4 right-4 bg-[#C86B85] text-white text-xs font-bold px-2 py-1 rounded-full">
+                        <i class="fas fa-clock mr-1"></i> 3-6 hours
+                    </div>
+                    <div class="text-[#C86B85] text-4xl mb-4">
+                        <i class="fas fa-braille"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#513252] mb-2">Braiding</h3>
+                    <p class="text-gray-600 mb-4">Expertly crafted box braids, cornrows, and protective styles that last for weeks.</p>
+                    <div class="text-sm text-[#C86B85] font-bold">
+                        Starting at ₦15,000
+                    </div>
+                </div>
+                
+                <!-- Service 2 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md relative">
+                    <div class="absolute top-4 right-4 bg-[#C86B85] text-white text-xs font-bold px-2 py-1 rounded-full">
+                        <i class="fas fa-clock mr-1"></i> 1-2 hours
+                    </div>
+                    <div class="text-[#C86B85] text-4xl mb-4">
+                        <i class="fas fa-cut"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#513252] mb-2">Haircuts</h3>
+                    <p class="text-gray-600 mb-4">Precision cuts tailored to your face shape and personal style by our master stylists.</p>
+                    <div class="text-sm text-[#C86B85] font-bold">
+                        Starting at ₦8,000
+                    </div>
+                </div>
+                
+                <!-- Service 3 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md relative">
+                    <div class="absolute top-4 right-4 bg-[#C86B85] text-white text-xs font-bold px-2 py-1 rounded-full">
+                        <i class="fas fa-clock mr-1"></i> 1.5-2 hours
+                    </div>
+                    <div class="text-[#C86B85] text-4xl mb-4">
+                        <i class="fas fa-eye"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#513252] mb-2">Lash Extensions</h3>
+                    <p class="text-gray-600 mb-4">Luxurious eyelash extensions for a dramatic, fluttery look that lasts for weeks.</p>
+                    <div class="text-sm text-[#C86B85] font-bold">
+                        Starting at ₦12,000
+                    </div>
+                </div>
+                
+                <!-- Service 4 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md relative">
+                    <div class="absolute top-4 right-4 bg-[#C86B85] text-white text-xs font-bold px-2 py-1 rounded-full">
+                        <i class="fas fa-clock mr-1"></i> 2-3 hours
+                    </div>
+                    <div class="text-[#C86B85] text-4xl mb-4">
+                        <i class="fas fa-wind"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#513252] mb-2">Finger Waves</h3>
+                    <p class="text-gray-600 mb-4">Classic 1920s finger waves styled to perfection for a timeless, elegant look.</p>
+                    <div class="text-sm text-[#C86B85] font-bold">
+                        Starting at ₦10,000
+                    </div>
+                </div>
+                
+                <!-- Service 5 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md relative">
+                    <div class="absolute top-4 right-4 bg-[#C86B85] text-white text-xs font-bold px-2 py-1 rounded-full">
+                        <i class="fas fa-clock mr-1"></i> 2-4 hours
+                    </div>
+                    <div class="text-[#C86B85] text-4xl mb-4">
+                        <i class="fas fa-bacon"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#513252] mb-2">Wig Installation</h3>
+                    <p class="text-gray-600 mb-4">Professional wig customization, cutting, and installation for a flawless finish.</p>
+                    <div class="text-sm text-[#C86B85] font-bold">
+                        Starting at ₦15,000
+                    </div>
+                </div>
+                
+                <!-- Service 6 -->
+                <div class="service-card bg-white p-6 rounded-lg shadow-md relative">
+                    <div class="absolute top-4 right-4 bg-[#C86B85] text-white text-xs font-bold px-2 py-1 rounded-full">
+                        <i class="fas fa-clock mr-1"></i> 3-5 hours
+                    </div>
+                    <div class="text-[#C86B85] text-4xl mb-4">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-[#513252] mb-2">Hair Coloring</h3>
+                    <p class="text-gray-600 mb-4">Vibrant colors, highlights, and balayage with premium products to protect your hair.</p>
+                    <div class="text-sm text-[#C86B85] font-bold">
+                        Starting at ₦20,000
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Gallery Section -->
+    <section id="gallery" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#513252] mb-4">Our Work</h2>
+                <div class="w-24 h-1 bg-[#C86B85] mx-auto"></div>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Browse some of our recent work to see the quality and creativity we bring to every style.
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-3 gap-4">
+                <!-- Replace these with your actual work images -->
+                <img src="https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=730&q=80" 
+                     alt="Braiding work" 
+                     class="gallery-item rounded-lg shadow-md h-64 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1559599076-9c61d8e1b77c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=686&q=80" 
+                     alt="Coloring work" 
+                     class="gallery-item rounded-lg shadow-md h-64 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Wig installation" 
+                     class="gallery-item rounded-lg shadow-md h-64 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                     alt="Stylist working" 
+                     class="gallery-item rounded-lg shadow-md h-64 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1600334129128-685c5582fd35?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80" 
+                     alt="Hair styling" 
+                     class="gallery-item rounded-lg shadow-md h-64 w-full object-cover">
+                <img src="https://images.unsplash.com/photo-1519699047748-de8e457a634e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=880&q=80" 
+                     alt="Finished look" 
+                     class="gallery-item rounded-lg shadow-md h-64 w-full object-cover">
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-[#513252] text-white">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-8 md:mb-0 md:pr-8">
+                    <img src="https://images.unsplash.com/photo-1595476108010-b4d1f102b1b1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=688&q=80" 
+                         alt="ChaCha Hair Stylists" 
+                         class="rounded-lg shadow-xl w-full h-auto max-h-96 object-cover">
+                </div>
+                <div class="md:w-1/2">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-6">About ChaCha Hair</h2>
+                    <p class="mb-4 text-lg">
+                        Founded in 2018, ChaCha Hair has become one of Lagos' most sought-after salons for premium hair services. Our mission is to provide exceptional hair care in a luxurious yet welcoming environment.
+                    </p>
+                    <p class="mb-4 text-lg">
+                        Each member of our team is carefully selected for their technical expertise, creativity, and dedication to client satisfaction. We stay on top of the latest trends while perfecting classic styles.
+                    </p>
+                    <p class="text-lg">
+                        We use only professional-grade products and tools to ensure your hair receives the best care possible. Your comfort and satisfaction are our top priorities.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-16 bg-[#F3D7CA]">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#513252] mb-4">What Our Clients Say</h2>
+                <div class="w-24 h-1 bg-[#C86B85] mx-auto"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-[#E6A4B4] flex items-center justify-center text-white text-xl font-bold mr-4">A</div>
+                        <div>
+                            <h4 class="font-bold text-[#513252]">Amina O.</h4>
+                            <div class="flex text-[#FFD700]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "ChaCha Hair gave me the best braids I've ever had in Lagos! They lasted 8 weeks with proper care. The stylists are professional and the salon is spotless."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-[#E6A4B4] flex items-center justify-center text-white text-xl font-bold mr-4">C</div>
+                        <div>
+                            <h4 class="font-bold text-[#513252]">Chioma K.</h4>
+                            <div class="flex text-[#FFD700]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "I get my wigs installed here exclusively now. Perfect edges every time and they make the wig look like my natural hair. Worth every naira!"
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-[#E6A4B4] flex items-center justify-center text-white text-xl font-bold mr-4">T</div>
+                        <div>
+                            <h4 class="font-bold text-[#513252]">Tolu B.</h4>
+                            <div class="flex text-[#FFD700]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "The color specialists at ChaCha transformed my damaged hair into a beautiful blonde balayage while actually improving its condition. I'm a customer for life!"
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold text-[#513252] mb-4">Book Your Appointment</h2>
+                <div class="w-24 h-1 bg-[#C86B85] mx-auto"></div>
+                <p class="mt-4 text-lg text-gray-600 max-w-2xl mx-auto">
+                    Ready to transform your look? Contact us to schedule your appointment. We're by appointment only to ensure personalized attention.
+                </p>
+            </div>
+            
+            <div class="flex flex-col md:flex-row gap-12">
+                <div class="md:w-1/2">
+                    <form class="space-y-6">
+                        <div>
+                            <label for="name" class="block text-sm font-medium text-[#513252]">Full Name *</label>
+                            <input type="text" id="name" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]">
+                        </div>
+                        
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-[#513252]">Phone Number *</label>
+                            <input type="tel" id="phone" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-[#513252]">Service Needed *</label>
+                            <select id="service" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]">
+                                <option value="">Select a service</option>
+                                <option>Braiding</option>
+                                <option>Haircut</option>
+                                <option>Lash Extensions</option>
+                                <option>Finger Waves</option>
+                                <option>Wig Installation</option>
+                                <option>Hair Coloring</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-[#513252]">Special Requests</label>
+                            <textarea id="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]"></textarea>
+                        </div>
+                        
+                        <button type="button" onclick="submitToWhatsApp()" class="w-full bg-[#C86B85] hover:bg-[#E6A4B4] text-white font-semibold py-3 px-4 rounded-md shadow-lg hover:shadow-xl transition duration-300">
+                            Request Appointment via WhatsApp
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-[#F8F3F0] p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-2xl font-bold text-[#513252] mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#C86B85] text-xl">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-[#513252]">Location</h4>
+                                    <p class="text-gray-600">123 Elegance Avenue, Victoria Island, Lagos, Nigeria</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#C86B85] text-xl">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-[#513252]">Call Us</h4>
+                                    <p class="text-gray-600">+234 907 622 3858</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#C86B85] text-xl">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-[#513252]">WhatsApp</h4>
+                                    <a href="https://wa.me/2349076223858" class="text-gray-600 hover:text-[#C86B85]">Click to chat on WhatsApp</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#C86B85] text-xl">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-[#513252]">Opening Hours</h4>
+                                    <div class="space-y-1 text-gray-600">
+                                        <p class="flex justify-between"><span>Monday - Friday:</span> <span>9:00 AM - 7:00 PM</span></p>
+                                        <p class="flex justify-between"><span>Saturday:</span> <span>10:00 AM - 6:00 PM</span></p>
+                                        <p class="flex justify-between"><span>Sunday:</span> <span>Closed</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-[#513252] mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="#" class="w-10 h-10 rounded-full bg-[#E6A4B4] text-white flex items-center justify-center hover:bg-[#C86B85] transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-[#E6A4B4] text-white flex items-center justify-center hover:bg-[#C86B85] transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-[#E6A4B4] text-white flex items-center justify-center hover:bg-[#C86B85] transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://wa.me/2349076223858" class="w-10 h-10 rounded-full bg-[#E6A4B4] text-white flex items-center justify-center hover:bg-[#C86B85] transition duration-300">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#513252] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="flex items-center">
+                        <span class="text-2xl font-bold text-[#F3D7CA]">ChaCha</span>
+                        <span class="text-2xl font-bold text-white">Hair</span>
+                    </a>
+                    <p class="mt-2 text-[#F3D7CA] text-sm">
+                        Luxury Hair Salon in Victoria Island, Lagos
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-4 mb-4">
+                        <a href="#" class="text-xl text-[#F3D7CA] hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="#" class="text-xl text-[#F3D7CA] hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-xl text-[#F3D7CA] hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://wa.me/2349076223858" class="text-xl text-[#F3D7CA] hover:text-white transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-[#F3D7CA]">
+                        &copy; 2023 ChaCha Hair. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Confirmation Modal (hidden by default) -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white p-8 rounded-lg max-w-md mx-4">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-500 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#513252] mb-2">Appointment Requested!</h3>
+                <p class="text-gray-600">We've received your booking request and will contact you shortly to confirm your appointment.</p>
+            </div>
+            <button id="close-modal" class="w-full bg-[#C86B85] text-white font-semibold py-2 px-4 rounded-md">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-[#C86B85] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-[#E6A4B4] transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/2349076223858" class="fixed bottom-24 right-8 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition duration-300">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission to WhatsApp
+        function submitToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !phone || !service) {
+                alert('Please fill in all required fields (Name, Phone, and Service)');
+                return;
+            }
+            
+            const whatsappText = `Hello ChaCha Hair,%0A%0A*Name:* ${name}%0A*Phone:* ${phone}%0A*Service Needed:* ${service}%0A*Special Requests:* ${message || 'None'}`;
+            
+            window.open(`https://wa.me/2349076223858?text=${whatsappText}`, '_blank');
+        }
+        
+        // Close modal
+        const closeModal = document.getElementById('close-modal');
+        closeModal.addEventListener('click', function() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Highlight active nav link based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Hide loader when page loads
+        window.addEventListener('load', function() {
+            const loader = document.querySelector('.loader');
+            loader.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
