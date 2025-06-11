@@ -585,4 +585,440 @@
                         
                         <div>
                             <label for="phone" class="block text-sm font-medium text-[#513252]">Phone Number *</label>
-                            <input type="tel" id="phone" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border
+                            <input type="tel" id="phone" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]">
+                        </div>
+                        
+                        <div>
+                            <label for="service" class="block text-sm font-medium text-[#513252]">Service Needed *</label>
+                            <select id="service" required class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]">
+                                <option value="">Select a service</option>
+                                <optgroup label="Hair Services">
+                                    <option>Braiding</option>
+                                    <option>Haircut</option>
+                                    <option>Hair Coloring</option>
+                                </optgroup>
+                                <optgroup label="Beauty Services">
+                                    <option>Lash Extensions</option>
+                                    <option>Bridal Styling</option>
+                                    <option>Makeup Services</option>
+                                </optgroup>
+                                <optgroup label="Wig Services">
+                                    <option>Wig Installation</option>
+                                    <option>Wig Revamping</option>
+                                </optgroup>
+                                <optgroup label="Training Programs">
+                                    <option>Hair Styling Training</option>
+                                    <option>Makeup Artistry Course</option>
+                                </optgroup>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        
+                        <div>
+                            <label for="appointment-date" class="block text-sm font-medium text-[#513252]">Preferred Date</label>
+                            <input type="date" id="appointment-date" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]">
+                        </div>
+                        
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-[#513252]">Special Requests</label>
+                            <textarea id="message" rows="4" class="mt-1 block w-full px-4 py-3 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]"></textarea>
+                        </div>
+                        
+                        <button type="button" onclick="submitToWhatsApp()" class="w-full bg-[#C86B85] hover:bg-[#E6A4B4] text-white font-semibold py-3 px-4 rounded-md shadow-lg hover:shadow-xl transition duration-300">
+                            Request Appointment via WhatsApp
+                        </button>
+                    </form>
+                </div>
+                
+                <div class="md:w-1/2">
+                    <div class="bg-[#F8F3F0] p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-2xl font-bold text-[#513252] mb-6">Contact Information</h3>
+                        
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#C86B85] text-xl">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-[#513252]">Location</h4>
+                                    <p class="text-gray-600">1 Kasupda building by Kasupda junction, Sabo Market, Kaduna South</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#C86B85] text-xl">
+                                    <i class="fas fa-phone-alt"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-[#513252]">Call Us</h4>
+                                    <p class="text-gray-600">+234 907 622 3858</p>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#C86B85] text-xl">
+                                    <i class="fab fa-whatsapp"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-[#513252]">WhatsApp</h4>
+                                    <a href="https://wa.me/2349076223858" class="text-gray-600 hover:text-[#C86B85]">Click to chat on WhatsApp</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#C86B85] text-xl">
+                                    <i class="fas fa-users"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-[#513252]">Wig Sales Group</h4>
+                                    <a href="https://chat.whatsapp.com/HX9EBmWhTECFcZ7fglXqZZ" class="text-gray-600 hover:text-[#C86B85]">Join our exclusive wig sales group</a>
+                                </div>
+                            </div>
+                            
+                            <div class="flex items-start">
+                                <div class="flex-shrink-0 text-[#C86B85] text-xl">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="ml-4">
+                                    <h4 class="text-lg font-semibold text-[#513252]">Opening Hours</h4>
+                                    <div class="space-y-1 text-gray-600">
+                                        <p class="flex justify-between"><span>Monday - Friday:</span> <span>9:00 AM - 7:00 PM</span></p>
+                                        <p class="flex justify-between"><span>Saturday:</span> <span>10:00 AM - 6:00 PM</span></p>
+                                        <p class="flex justify-between"><span>Sunday:</span> <span>Closed</span></p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="mt-8">
+                            <h4 class="text-lg font-semibold text-[#513252] mb-4">Follow Us</h4>
+                            <div class="flex space-x-4">
+                                <a href="https://www.instagram.com/chachaz_hair?igsh=MXYyZzByYm5xY24zYg==" class="w-10 h-10 rounded-full bg-[#E6A4B4] text-white flex items-center justify-center hover:bg-[#C86B85] transition duration-300">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="https://www.facebook.com/share/1CTUYe1jQ3/?mibextid=wwXIfr" class="w-10 h-10 rounded-full bg-[#E6A4B4] text-white flex items-center justify-center hover:bg-[#C86B85] transition duration-300">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="w-10 h-10 rounded-full bg-[#E6A4B4] text-white flex items-center justify-center hover:bg-[#C86B85] transition duration-300">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="https://wa.me/2349076223858" class="w-10 h-10 rounded-full bg-[#E6A4B4] text-white flex items-center justify-center hover:bg-[#C86B85] transition duration-300">
+                                    <i class="fab fa-whatsapp"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-[#513252] text-white py-12">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-6 md:mb-0">
+                    <a href="#" class="flex items-center">
+                        <span class="text-2xl font-bold text-[#F3D7CA]">ChaChaZ</span>
+                        <span class="text-2xl font-bold text-white">Hair</span>
+                    </a>
+                    <p class="mt-2 text-[#F3D7CA] text-sm">
+                        Luxury Hair & Beauty Salon in Kaduna
+                    </p>
+                </div>
+                
+                <div class="flex flex-col items-center md:items-end">
+                    <div class="flex space-x-4 mb-4">
+                        <a href="https://www.instagram.com/chachaz_hair?igsh=MXYyZzByYm5xY24zYg==" class="text-xl text-[#F3D7CA] hover:text-white transition duration-300">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.facebook.com/share/1CTUYe1jQ3/?mibextid=wwXIfr" class="text-xl text-[#F3D7CA] hover:text-white transition duration-300">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="text-xl text-[#F3D7CA] hover:text-white transition duration-300">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="https://wa.me/2349076223858" class="text-xl text-[#F3D7CA] hover:text-white transition duration-300">
+                            <i class="fab fa-whatsapp"></i>
+                        </a>
+                    </div>
+                    <p class="text-sm text-[#F3D7CA]">
+                        &copy; 2023 ChaChaZ Hair. All Rights Reserved.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Booking Confirmation Modal (hidden by default) -->
+    <div id="booking-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white p-8 rounded-lg max-w-md mx-4">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-check text-green-500 text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#513252] mb-2">Appointment Requested!</h3>
+                <p class="text-gray-600">We've received your booking request and will contact you shortly to confirm your appointment.</p>
+            </div>
+            <button id="close-modal" class="w-full bg-[#C86B85] text-white font-semibold py-2 px-4 rounded-md">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Comment Submitted Modal -->
+    <div id="comment-modal" class="fixed inset-0 z-50 hidden flex items-center justify-center bg-black bg-opacity-50">
+        <div class="bg-white p-8 rounded-lg max-w-md mx-4">
+            <div class="text-center mb-6">
+                <div class="w-16 h-16 bg-[#F3D7CA] rounded-full flex items-center justify-center mx-auto mb-4">
+                    <i class="fas fa-heart text-[#C86B85] text-3xl"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-[#513252] mb-2">Thank You!</h3>
+                <p class="text-gray-600">We appreciate your feedback and value your opinion. Your comment helps us improve our services.</p>
+            </div>
+            <button id="close-comment-modal" class="w-full bg-[#C86B85] text-white font-semibold py-2 px-4 rounded-md">
+                Close
+            </button>
+        </div>
+    </div>
+
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="fixed bottom-8 right-8 bg-[#C86B85] text-white w-12 h-12 rounded-full flex items-center justify-center shadow-lg hover:bg-[#E6A4B4] transition duration-300 hidden">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/2349076223858" class="fixed bottom-24 right-8 bg-green-500 text-white w-14 h-14 rounded-full flex items-center justify-center shadow-lg hover:bg-green-600 transition duration-300">
+        <i class="fab fa-whatsapp text-2xl"></i>
+    </a>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+        
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // Close mobile menu if open
+                mobileMenu.classList.add('hidden');
+                
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+        
+        // Form submission to WhatsApp with better formatting
+        function submitToWhatsApp() {
+            const name = document.getElementById('name').value;
+            const phone = document.getElementById('phone').value;
+            const service = document.getElementById('service').value;
+            const date = document.getElementById('appointment-date').value;
+            const message = document.getElementById('message').value;
+            
+            if (!name || !phone || !service) {
+                alert('Please fill in all required fields (Name, Phone, and Service)');
+                return;
+            }
+            
+            // Format the date nicely if provided
+            const formattedDate = date ? new Date(date).toLocaleDateString('en-US', {
+                weekday: 'long',
+                year: 'numeric',
+                month: 'long',
+                day: 'numeric'
+            }) : 'Not specified';
+            
+            // Create a nicely formatted WhatsApp message
+            const whatsappText = `✨ *NEW APPOINTMENT REQUEST* ✨%0A%0A` +
+                                `*Client Name:* ${name}%0A` +
+                                `*Phone Number:* ${phone}%0A` +
+                                `*Service Requested:* ${service}%0A` +
+                                `*Preferred Date:* ${formattedDate}%0A` +
+                                `%0A*Special Requests:*%0A${message || 'None'}` +
+                                `%0A%0A📍 *Location:* 1 Kasupda building by Kasupda junction, Sabo Market, Kaduna South` +
+                                `%0A%0A_This message was sent via ChaChaZ Hair website_`;
+            
+            window.open(`https://wa.me/2349076223858?text=${whatsappText}`, '_blank');
+            
+            // Show confirmation modal
+            document.getElementById('booking-modal').classList.remove('hidden');
+        }
+        
+        // Comment form submission
+        document.getElementById('comment-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('comment-name').value;
+            const service = document.getElementById('comment-service').value;
+            const rating = document.getElementById('comment-rating').value;
+            const message = document.getElementById('comment-message').value;
+            
+            if (!name || !message) {
+                alert('Please fill in all required fields (Name and Feedback)');
+                return;
+            }
+            
+            // Create a nicely formatted WhatsApp message for the comment
+            const whatsappComment = `🌟 *NEW CLIENT FEEDBACK* 🌟%0A%0A` +
+                                   `*Client Name:* ${name}%0A` +
+                                   `*Service Received:* ${service || 'Not specified'}%0A` +
+                                   `*Rating:* ${rating ? '⭐'.repeat(rating) : 'Not rated'}%0A` +
+                                   `%0A*Feedback:*%0A${message}` +
+                                   `%0A%0A_This feedback was submitted via ChaChaZ Hair website_`;
+            
+            window.open(`https://wa.me/2349076223858?text=${whatsappComment}`, '_blank');
+            
+            // Show comment confirmation modal
+            document.getElementById('comment-modal').classList.remove('hidden');
+            
+            // Reset form
+            this.reset();
+            document.getElementById('comment-rating').value = '0';
+            resetStars();
+        });
+        
+        // Star rating functionality
+        const stars = document.querySelectorAll('[data-rating]');
+        const ratingInput = document.getElementById('comment-rating');
+        
+        stars.forEach(star => {
+            star.addEventListener('click', function() {
+                const rating = this.getAttribute('data-rating');
+                ratingInput.value = rating;
+                
+                stars.forEach((s, index) => {
+                    if (index < rating) {
+                        s.classList.remove('text-gray-300');
+                        s.classList.add('text-[#FFD700]');
+                    } else {
+                        s.classList.remove('text-[#FFD700]');
+                        s.classList.add('text-gray-300');
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseover', function() {
+                const hoverRating = this.getAttribute('data-rating');
+                
+                stars.forEach((s, index) => {
+                    if (index < hoverRating) {
+                        s.classList.add('text-yellow-300');
+                    } else {
+                        s.classList.remove('text-yellow-300');
+                    }
+                });
+            });
+            
+            star.addEventListener('mouseout', function() {
+                const currentRating = ratingInput.value;
+                
+                stars.forEach((s, index) => {
+                    if (index < currentRating) {
+                        s.classList.remove('text-yellow-300');
+                        s.classList.add('text-[#FFD700]');
+                    } else {
+                        s.classList.remove('text-yellow-300');
+                        s.classList.add('text-gray-300');
+                    }
+                });
+            });
+        });
+        
+        function resetStars() {
+            stars.forEach(star => {
+                star.classList.remove('text-[#FFD700]');
+                star.classList.add('text-gray-300');
+            });
+        }
+        
+        // Service category filtering
+        function filterServices(category) {
+            const services = document.querySelectorAll('.service-card');
+            const tabs = document.querySelectorAll('.service-tab');
+            
+            // Update active tab
+            tabs.forEach(tab => {
+                tab.classList.remove('active', 'bg-[#C86B85]', 'text-white');
+                tab.classList.add('text-[#513252]', 'border-[#C86B85]');
+            });
+            
+            event.target.classList.add('active', 'bg-[#C86B85]', 'text-white');
+            event.target.classList.remove('text-[#513252]', 'border-[#C86B85]');
+            
+            // Filter services
+            services.forEach(service => {
+                if (category === 'all' || service.getAttribute('data-category') === category) {
+                    service.style.display = 'block';
+                } else {
+                    service.style.display = 'none';
+                }
+            });
+        }
+        
+        // Close modals
+        document.getElementById('close-modal').addEventListener('click', function() {
+            document.getElementById('booking-modal').classList.add('hidden');
+        });
+        
+        document.getElementById('close-comment-modal').addEventListener('click', function() {
+            document.getElementById('comment-modal').classList.add('hidden');
+        });
+        
+        // Back to top button
+        const backToTopButton = document.getElementById('back-to-top');
+        
+        window.addEventListener('scroll', function() {
+            if (window.pageYOffset > 300) {
+                backToTopButton.classList.remove('hidden');
+            } else {
+                backToTopButton.classList.add('hidden');
+            }
+        });
+        
+        backToTopButton.addEventListener('click', function() {
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        });
+        
+        // Highlight active nav link based on scroll position
+        const sections = document.querySelectorAll('section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        
+        window.addEventListener('scroll', function() {
+            let current = '';
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                
+                if (pageYOffset >= sectionTop - 150) {
+                    current = section.getAttribute('id');
+                }
+            });
+            
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.classList.add('active');
+                }
+            });
+        });
+        
+        // Hide loader when page loads
+        window.addEventListener('load', function() {
+            const loader = document.querySelector('.loader');
+            loader.classList.add('hidden');
+        });
+    </script>
+</body>
+</html>
