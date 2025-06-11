@@ -4,8 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ChaChaZ Hair - Premium Hair & Beauty Salon in Kaduna</title>
+    <!-- Load Font Awesome directly -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudash.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600&display=swap');
         
@@ -128,6 +129,17 @@
             background-color: #C86B85;
             color: white;
         }
+        
+        /* Mobile menu animation */
+        .mobile-menu {
+            transition: all 0.3s ease;
+            max-height: 0;
+            overflow: hidden;
+        }
+        
+        .mobile-menu.open {
+            max-height: 500px;
+        }
     </style>
 </head>
 <body class="text-gray-700 bg-[#FFF5EE]">
@@ -143,7 +155,7 @@
             </a>
             
             <!-- Mobile menu button -->
-            <button id="mobile-menu-button" class="md:hidden text-[#513252]">
+            <button id="mobile-menu-button" class="md:hidden text-[#513252] focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
             
@@ -159,13 +171,15 @@
         </div>
         
         <!-- Mobile Navigation -->
-        <div id="mobile-menu" class="hidden md:hidden bg-white py-3 px-4 shadow-lg">
-            <a href="#home" class="block py-2 nav-link active">Home</a>
-            <a href="#services" class="block py-2 nav-link">Services</a>
-            <a href="#gallery" class="block py-2 nav-link">Gallery</a>
-            <a href="#about" class="block py-2 nav-link">About</a>
-            <a href="#testimonials" class="block py-2 nav-link">Reviews</a>
-            <a href="#contact" class="block py-2 nav-link">Contact</a>
+        <div id="mobile-menu" class="mobile-menu md:hidden bg-white shadow-lg">
+            <div class="container mx-auto px-4 py-2">
+                <a href="#home" class="block py-3 nav-link active border-b border-gray-100">Home</a>
+                <a href="#services" class="block py-3 nav-link border-b border-gray-100">Services</a>
+                <a href="#gallery" class="block py-3 nav-link border-b border-gray-100">Gallery</a>
+                <a href="#about" class="block py-3 nav-link border-b border-gray-100">About</a>
+                <a href="#testimonials" class="block py-3 nav-link border-b border-gray-100">Reviews</a>
+                <a href="#contact" class="block py-3 nav-link">Contact</a>
+            </div>
         </div>
     </header>
 
@@ -433,7 +447,7 @@
         </div>
     </section>
 
-    <!-- Testimonials & Comments Section -->
+    <!-- Testimonials Section -->
     <section id="testimonials" class="py-16 bg-[#F3D7CA]">
         <div class="container mx-auto px-4">
             <div class="text-center mb-16">
@@ -444,121 +458,87 @@
                 </p>
             </div>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <!-- Testimonials -->
-                <div>
-                    <h3 class="text-2xl font-bold text-[#513252] mb-6 text-center">Testimonials</h3>
-                    <div class="space-y-6">
-                        <!-- Testimonial 1 -->
-                        <div class="testimonial-card p-6 rounded-lg shadow-md">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 rounded-full bg-[#E6A4B4] flex items-center justify-center text-white text-xl font-bold mr-4">A</div>
-                                <div>
-                                    <h4 class="font-bold text-[#513252]">Amina O.</h4>
-                                    <div class="flex text-[#FFD700]">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-[#E6A4B4] flex items-center justify-center text-white text-xl font-bold mr-4">A</div>
+                        <div>
+                            <h4 class="font-bold text-[#513252]">Amina O.</h4>
+                            <div class="flex text-[#FFD700]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
-                            <p class="text-gray-600">
-                                "ChaChaZ Hair gave me the best bridal makeup for my wedding! The team was professional and made me feel like a queen. My makeup lasted all day and looked perfect in all my photos."
-                            </p>
-                        </div>
-                        
-                        <!-- Testimonial 2 -->
-                        <div class="testimonial-card p-6 rounded-lg shadow-md">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 rounded-full bg-[#E6A4B4] flex items-center justify-center text-white text-xl font-bold mr-4">C</div>
-                                <div>
-                                    <h4 class="font-bold text-[#513252]">Chioma K.</h4>
-                                    <div class="flex text-[#FFD700]">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="text-gray-600">
-                                "I completed the hair styling training program and now run my own successful salon! The instructors were patient and knowledgeable. Best investment I've ever made in myself."
-                            </p>
-                        </div>
-                        
-                        <!-- Testimonial 3 -->
-                        <div class="testimonial-card p-6 rounded-lg shadow-md">
-                            <div class="flex items-center mb-4">
-                                <div class="w-12 h-12 rounded-full bg-[#E6A4B4] flex items-center justify-center text-white text-xl font-bold mr-4">T</div>
-                                <div>
-                                    <h4 class="font-bold text-[#513252]">Tolu B.</h4>
-                                    <div class="flex text-[#FFD700]">
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star"></i>
-                                        <i class="fas fa-star-half-alt"></i>
-                                    </div>
-                                </div>
-                            </div>
-                            <p class="text-gray-600">
-                                "The wig revamping service saved me so much money! My old wigs look brand new again. Plus, the wig sales group has amazing deals on quality products."
-                            </p>
                         </div>
                     </div>
+                    <p class="text-gray-600">
+                        "ChaChaZ Hair gave me the best bridal makeup for my wedding! The team was professional and made me feel like a queen. My makeup lasted all day and looked perfect in all my photos."
+                    </p>
                 </div>
                 
-                <!-- Comment Form -->
-                <div>
-                    <h3 class="text-2xl font-bold text-[#513252] mb-6 text-center">Leave Your Feedback</h3>
-                    <div class="comment-form p-6 rounded-lg shadow-md">
-                        <form id="comment-form" class="space-y-4">
-                            <div>
-                                <label for="comment-name" class="block text-sm font-medium text-[#513252]">Your Name *</label>
-                                <input type="text" id="comment-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]">
+                <!-- Testimonial 2 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-[#E6A4B4] flex items-center justify-center text-white text-xl font-bold mr-4">C</div>
+                        <div>
+                            <h4 class="font-bold text-[#513252]">Chioma K.</h4>
+                            <div class="flex text-[#FFD700]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
                             </div>
-                            
-                            <div>
-                                <label for="comment-service" class="block text-sm font-medium text-[#513252]">Service Received</label>
-                                <select id="comment-service" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]">
-                                    <option value="">Select service</option>
-                                    <option>Braiding</option>
-                                    <option>Haircut</option>
-                                    <option>Lash Extensions</option>
-                                    <option>Bridal Styling</option>
-                                    <option>Makeup</option>
-                                    <option>Wig Installation</option>
-                                    <option>Wig Revamping</option>
-                                    <option>Training Program</option>
-                                    <option>Other</option>
-                                </select>
-                            </div>
-                            
-                            <div>
-                                <label for="comment-rating" class="block text-sm font-medium text-[#513252]">Rating</label>
-                                <div class="flex mt-1 space-x-1">
-                                    <i class="fas fa-star text-gray-300 text-xl cursor-pointer" data-rating="1"></i>
-                                    <i class="fas fa-star text-gray-300 text-xl cursor-pointer" data-rating="2"></i>
-                                    <i class="fas fa-star text-gray-300 text-xl cursor-pointer" data-rating="3"></i>
-                                    <i class="fas fa-star text-gray-300 text-xl cursor-pointer" data-rating="4"></i>
-                                    <i class="fas fa-star text-gray-300 text-xl cursor-pointer" data-rating="5"></i>
-                                </div>
-                                <input type="hidden" id="comment-rating" value="0">
-                            </div>
-                            
-                            <div>
-                                <label for="comment-message" class="block text-sm font-medium text-[#513252]">Your Feedback *</label>
-                                <textarea id="comment-message" rows="4" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]"></textarea>
-                            </div>
-                            
-                            <button type="submit" class="w-full bg-[#C86B85] hover:bg-[#E6A4B4] text-white font-semibold py-2 px-4 rounded-md shadow hover:shadow-md transition duration-300">
-                                Submit Feedback
-                            </button>
-                        </form>
+                        </div>
                     </div>
+                    <p class="text-gray-600">
+                        "I completed the hair styling training program and now run my own successful salon! The instructors were patient and knowledgeable. Best investment I've ever made in myself."
+                    </p>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="testimonial-card p-6 rounded-lg shadow-md">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 rounded-full bg-[#E6A4B4] flex items-center justify-center text-white text-xl font-bold mr-4">T</div>
+                        <div>
+                            <h4 class="font-bold text-[#513252]">Tolu B.</h4>
+                            <div class="flex text-[#FFD700]">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star-half-alt"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600">
+                        "The wig revamping service saved me so much money! My old wigs look brand new again. Plus, the wig sales group has amazing deals on quality products."
+                    </p>
+                </div>
+            </div>
+            
+            <!-- Comment Form -->
+            <div class="mt-16 max-w-2xl mx-auto">
+                <h3 class="text-2xl font-bold text-[#513252] mb-6 text-center">Leave Your Feedback</h3>
+                <div class="comment-form p-6 rounded-lg shadow-md">
+                    <form id="comment-form" class="space-y-4">
+                        <div>
+                            <label for="comment-name" class="block text-sm font-medium text-[#513252]">Your Name *</label>
+                            <input type="text" id="comment-name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]">
+                        </div>
+                        
+                        <div>
+                            <label for="comment-message" class="block text-sm font-medium text-[#513252]">Your Feedback *</label>
+                            <textarea id="comment-message" rows="4" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#C86B85] focus:border-[#C86B85]"></textarea>
+                        </div>
+                        
+                        <button type="submit" class="w-full bg-[#C86B85] hover:bg-[#E6A4B4] text-white font-semibold py-2 px-4 rounded-md shadow hover:shadow-md transition duration-300">
+                            Submit Feedback
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
@@ -774,7 +754,7 @@
                     <i class="fas fa-heart text-[#C86B85] text-3xl"></i>
                 </div>
                 <h3 class="text-2xl font-bold text-[#513252] mb-2">Thank You!</h3>
-                <p class="text-gray-600">We appreciate your feedback and value your opinion. Your comment helps us improve our services.</p>
+                <p class="text-gray-600">We appreciate your feedback and value your opinion.</p>
             </div>
             <button id="close-comment-modal" class="w-full bg-[#C86B85] text-white font-semibold py-2 px-4 rounded-md">
                 Close
@@ -798,16 +778,32 @@
         const mobileMenu = document.getElementById('mobile-menu');
         
         mobileMenuButton.addEventListener('click', () => {
-            mobileMenu.classList.toggle('hidden');
+            mobileMenu.classList.toggle('open');
+            // Change icon based on menu state
+            const icon = mobileMenuButton.querySelector('i');
+            if (mobileMenu.classList.contains('open')) {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            }
+        });
+        
+        // Close mobile menu when clicking a link
+        document.querySelectorAll('#mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('open');
+                const icon = mobileMenuButton.querySelector('i');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
         });
         
         // Smooth scrolling for navigation links
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function(e) {
                 e.preventDefault();
-                
-                // Close mobile menu if open
-                mobileMenu.classList.add('hidden');
                 
                 document.querySelector(this.getAttribute('href')).scrollIntoView({
                     behavior: 'smooth'
@@ -857,8 +853,6 @@
             e.preventDefault();
             
             const name = document.getElementById('comment-name').value;
-            const service = document.getElementById('comment-service').value;
-            const rating = document.getElementById('comment-rating').value;
             const message = document.getElementById('comment-message').value;
             
             if (!name || !message) {
@@ -866,78 +860,13 @@
                 return;
             }
             
-            // Create a nicely formatted WhatsApp message for the comment
-            const whatsappComment = `🌟 *NEW CLIENT FEEDBACK* 🌟%0A%0A` +
-                                   `*Client Name:* ${name}%0A` +
-                                   `*Service Received:* ${service || 'Not specified'}%0A` +
-                                   `*Rating:* ${rating ? '⭐'.repeat(rating) : 'Not rated'}%0A` +
-                                   `%0A*Feedback:*%0A${message}` +
-                                   `%0A%0A_This feedback was submitted via ChaChaZ Hair website_`;
-            
-            window.open(`https://wa.me/2349076223858?text=${whatsappComment}`, '_blank');
-            
-            // Show comment confirmation modal
+            // In a real implementation, you would send this to a server
+            // For demo purposes, we'll just show a confirmation
             document.getElementById('comment-modal').classList.remove('hidden');
             
             // Reset form
             this.reset();
-            document.getElementById('comment-rating').value = '0';
-            resetStars();
         });
-        
-        // Star rating functionality
-        const stars = document.querySelectorAll('[data-rating]');
-        const ratingInput = document.getElementById('comment-rating');
-        
-        stars.forEach(star => {
-            star.addEventListener('click', function() {
-                const rating = this.getAttribute('data-rating');
-                ratingInput.value = rating;
-                
-                stars.forEach((s, index) => {
-                    if (index < rating) {
-                        s.classList.remove('text-gray-300');
-                        s.classList.add('text-[#FFD700]');
-                    } else {
-                        s.classList.remove('text-[#FFD700]');
-                        s.classList.add('text-gray-300');
-                    }
-                });
-            });
-            
-            star.addEventListener('mouseover', function() {
-                const hoverRating = this.getAttribute('data-rating');
-                
-                stars.forEach((s, index) => {
-                    if (index < hoverRating) {
-                        s.classList.add('text-yellow-300');
-                    } else {
-                        s.classList.remove('text-yellow-300');
-                    }
-                });
-            });
-            
-            star.addEventListener('mouseout', function() {
-                const currentRating = ratingInput.value;
-                
-                stars.forEach((s, index) => {
-                    if (index < currentRating) {
-                        s.classList.remove('text-yellow-300');
-                        s.classList.add('text-[#FFD700]');
-                    } else {
-                        s.classList.remove('text-yellow-300');
-                        s.classList.add('text-gray-300');
-                    }
-                });
-            });
-        });
-        
-        function resetStars() {
-            stars.forEach(star => {
-                star.classList.remove('text-[#FFD700]');
-                star.classList.add('text-gray-300');
-            });
-        }
         
         // Service category filtering
         function filterServices(category) {
