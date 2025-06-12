@@ -190,6 +190,32 @@
                 transform: translate(-50%, 0);
             }
         }
+
+        /* Mobile specific styles */
+        @media (max-width: 768px) {
+            .service-card .action-button {
+                display: block !important;
+                position: static;
+                transform: none;
+                margin-top: 12px;
+                width: 100%;
+                text-align: center;
+            }
+            
+            .service-card .price-display {
+                display: none;
+            }
+            
+            .service-card {
+                padding-bottom: 20px;
+            }
+
+            .service-card:hover {
+                transform: none;
+                box-shadow: none;
+                padding-bottom: 20px;
+            }
+        }
     </style>
 </head>
 <body class="text-gray-700 bg-[#FFF5EE]">
@@ -1026,12 +1052,6 @@
             });
         });
         
-        // Hide loader when page loads
-        window.addEventListener('load', function() {
-            const loader = document.querySelector('.loader');
-            loader.classList.add('hidden');
-        });
-
         // Handle service card action buttons
         document.querySelectorAll('.service-card[data-category="hair"] .action-button, .service-card[data-category="beauty"] .action-button, .service-card[data-category="wigs"] .action-button').forEach(button => {
             button.addEventListener('click', function(e) {
@@ -1054,6 +1074,36 @@
                     window.open(`https://wa.me/2349076223858?text=${encodeURIComponent(whatsappText)}`, '_blank');
                 }
             });
+        });
+
+        // Handle touch events for mobile
+        function setupMobileServiceCards() {
+            if (window.innerWidth <= 768) {
+                document.querySelectorAll('.service-card').forEach(card => {
+                    card.addEventListener('click', function(e) {
+                        // Don't trigger if clicking on the action button itself
+                        if (!e.target.closest('.action-button')) {
+                            const button = this.querySelector('.action-button');
+                            if (button) {
+                                // Simulate a click on the button
+                                button.click();
+                            }
+                        }
+                    });
+                });
+            }
+        }
+
+        // Initialize mobile behavior
+        window.addEventListener('load', function() {
+            setupMobileServiceCards();
+            const loader = document.querySelector('.loader');
+            loader.classList.add('hidden');
+        });
+
+        // Update on resize
+        window.addEventListener('resize', function() {
+            setupMobileServiceCards();
         });
     </script>
 </body>
