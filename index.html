@@ -40,6 +40,7 @@
         .service-card:hover {
             transform: translateY(-10px);
             box-shadow: 0 10px 25px rgba(201, 107, 133, 0.3);
+            padding-bottom: 50px;
         }
         
         .testimonial-card {
@@ -140,6 +141,55 @@
         .mobile-menu.open {
             max-height: 500px;
         }
+
+        /* New styles for service card action buttons */
+        .service-card .action-button {
+            display: none;
+            position: absolute;
+            bottom: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: var(--color-accent);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 600;
+            text-align: center;
+            white-space: nowrap;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+            text-decoration: none;
+        }
+
+        .service-card:hover .action-button {
+            display: block;
+            animation: fadeInUp 0.3s ease forwards;
+        }
+
+        .service-card .action-button:hover {
+            background-color: var(--color-secondary);
+            transform: translateX(-50%) scale(1.05);
+        }
+
+        .service-card .price-display {
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover .price-display {
+            opacity: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translate(-50%, 10px);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, 0);
+            }
+        }
     </style>
 </head>
 <body class="text-gray-700 bg-[#FFF5EE]">
@@ -236,9 +286,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Braiding</h3>
                     <p class="text-gray-600 mb-4">Expertly crafted box braids, cornrows, and protective styles that last for weeks.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦15,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Book Now
+                    </a>
                 </div>
                 
                 <div class="service-card bg-white p-6 rounded-lg shadow-md relative" data-category="hair">
@@ -250,9 +303,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Haircuts</h3>
                     <p class="text-gray-600 mb-4">Precision cuts tailored to your face shape and personal style by our master stylists.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦8,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Book Now
+                    </a>
                 </div>
                 
                 <div class="service-card bg-white p-6 rounded-lg shadow-md relative" data-category="hair">
@@ -264,9 +320,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Hair Coloring</h3>
                     <p class="text-gray-600 mb-4">Vibrant colors, highlights, and balayage with premium products to protect your hair.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦20,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Book Now
+                    </a>
                 </div>
                 
                 <!-- Beauty Services -->
@@ -279,9 +338,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Lash Extensions</h3>
                     <p class="text-gray-600 mb-4">Luxurious eyelash extensions for a dramatic, fluttery look that lasts for weeks.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦12,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Book Now
+                    </a>
                 </div>
                 
                 <div class="service-card bg-white p-6 rounded-lg shadow-md relative" data-category="beauty">
@@ -293,9 +355,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Bridal Styling</h3>
                     <p class="text-gray-600 mb-4">Complete bridal makeup and hairstyling packages for your special day.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦25,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Book Now
+                    </a>
                 </div>
                 
                 <div class="service-card bg-white p-6 rounded-lg shadow-md relative" data-category="beauty">
@@ -307,9 +372,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Makeup Services</h3>
                     <p class="text-gray-600 mb-4">Professional makeup application for all occasions using premium products.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦15,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Book Now
+                    </a>
                 </div>
                 
                 <!-- Training Services -->
@@ -322,9 +390,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Hair Styling Training</h3>
                     <p class="text-gray-600 mb-4">Comprehensive professional training in all aspects of hair styling and braiding.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦50,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Enroll Now
+                    </a>
                 </div>
                 
                 <div class="service-card bg-white p-6 rounded-lg shadow-md relative" data-category="training">
@@ -336,9 +407,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Makeup Artistry Course</h3>
                     <p class="text-gray-600 mb-4">Professional makeup training covering all techniques from basic to advanced.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦60,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Enroll Now
+                    </a>
                 </div>
                 
                 <!-- Wig Services -->
@@ -351,9 +425,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Wig Installation</h3>
                     <p class="text-gray-600 mb-4">Professional wig customization, cutting, and installation for a flawless finish.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦15,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Book Now
+                    </a>
                 </div>
                 
                 <div class="service-card bg-white p-6 rounded-lg shadow-md relative" data-category="wigs">
@@ -365,9 +442,12 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Wig Revamping</h3>
                     <p class="text-gray-600 mb-4">Restore your old wigs to like-new condition with our professional revamping service.</p>
-                    <div class="text-sm text-[#C86B85] font-bold">
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦10,000
                     </div>
+                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                        Book Now
+                    </a>
                 </div>
                 
                 <div class="service-card bg-white p-6 rounded-lg shadow-md relative" data-category="wigs">
@@ -379,8 +459,11 @@
                     </div>
                     <h3 class="text-xl font-bold text-[#513252] mb-2">Wig Sales Group</h3>
                     <p class="text-gray-600 mb-4">Join our exclusive WhatsApp group for wig sales, discounts, and special offers.</p>
-                    <a href="https://chat.whatsapp.com/HX9EBmWhTECFcZ7fglXqZZ" class="text-sm text-[#C86B85] font-bold hover:underline">
-                        Click to Join Group
+                    <div class="price-display text-sm text-[#C86B85] font-bold">
+                        Join our group
+                    </div>
+                    <a href="https://chat.whatsapp.com/HX9EBmWhTECFcZ7fglXqZZ" class="action-button bg-[#25D366] hover:bg-[#128C7E]">
+                        Join WhatsApp Group
                     </a>
                 </div>
             </div>
@@ -947,6 +1030,30 @@
         window.addEventListener('load', function() {
             const loader = document.querySelector('.loader');
             loader.classList.add('hidden');
+        });
+
+        // Handle service card action buttons
+        document.querySelectorAll('.service-card[data-category="hair"] .action-button, .service-card[data-category="beauty"] .action-button, .service-card[data-category="wigs"] .action-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#contact') {
+                    e.preventDefault();
+                    const serviceName = this.closest('.service-card').querySelector('h3').textContent;
+                    const whatsappText = `I'd like to book an appointment for: ${serviceName}`;
+                    window.open(`https://wa.me/2349076223858?text=${encodeURIComponent(whatsappText)}`, '_blank');
+                }
+            });
+        });
+
+        // For training cards
+        document.querySelectorAll('.service-card[data-category="training"] .action-button').forEach(button => {
+            button.addEventListener('click', function(e) {
+                if (this.getAttribute('href') === '#contact') {
+                    e.preventDefault();
+                    const courseName = this.closest('.service-card').querySelector('h3').textContent;
+                    const whatsappText = `I'm interested in enrolling for: ${courseName}`;
+                    window.open(`https://wa.me/2349076223858?text=${encodeURIComponent(whatsappText)}`, '_blank');
+                }
+            });
         });
     </script>
 </body>
