@@ -363,7 +363,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦15,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Braiding">
                         Book Now
                     </a>
                 </div>
@@ -380,7 +380,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦8,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Haircuts">
                         Book Now
                     </a>
                 </div>
@@ -397,7 +397,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦20,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Hair Coloring">
                         Book Now
                     </a>
                 </div>
@@ -415,7 +415,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦12,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Lash Extensions">
                         Book Now
                     </a>
                 </div>
@@ -432,7 +432,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦25,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Bridal Styling">
                         Book Now
                     </a>
                 </div>
@@ -449,7 +449,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦15,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Makeup Services">
                         Book Now
                     </a>
                 </div>
@@ -467,7 +467,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦50,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Hair Styling Training">
                         Enroll Now
                     </a>
                 </div>
@@ -484,7 +484,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦60,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Makeup Artistry Course">
                         Enroll Now
                     </a>
                 </div>
@@ -502,7 +502,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦15,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Wig Installation">
                         Book Now
                     </a>
                 </div>
@@ -519,7 +519,7 @@
                     <div class="price-display text-sm text-[#C86B85] font-bold">
                         Starting at ₦10,000
                     </div>
-                    <a href="#contact" class="action-button hover:bg-[#E6A4B4]">
+                    <a href="#" class="action-button hover:bg-[#E6A4B4]" data-service="Wig Revamping">
                         Book Now
                     </a>
                 </div>
@@ -1153,72 +1153,75 @@
             // Handle service card clicks
             document.querySelectorAll('.service-card').forEach(card => {
                 card.addEventListener('click', function(e) {
-                    // Only trigger on mobile or if not clicking the button directly
-                    if (window.innerWidth <= 768 || !e.target.closest('.action-button')) {
-                        const serviceName = this.querySelector('h3')?.textContent;
-                        const serviceDescription = this.querySelector('p')?.textContent;
-                        const servicePrice = this.querySelector('.price-display')?.textContent;
-                        const actionButton = this.querySelector('.action-button');
+                    // Don't trigger if clicking on the action button (except on mobile)
+                    if (window.innerWidth > 768 && e.target.closest('.action-button')) {
+                        return;
+                    }
+                    
+                    const serviceName = this.querySelector('h3')?.textContent;
+                    const serviceDescription = this.querySelector('p')?.textContent;
+                    const servicePrice = this.querySelector('.price-display')?.textContent;
+                    const actionButton = this.querySelector('.action-button');
+                    
+                    if (serviceName && serviceDescription && servicePrice && popupServiceName && popupServiceDescription && popupServicePrice && popupActionButton) {
+                        // Set popup content
+                        popupServiceName.textContent = serviceName;
+                        popupServiceDescription.textContent = serviceDescription;
+                        popupServicePrice.textContent = servicePrice;
                         
-                        if (serviceName && serviceDescription && servicePrice && popupServiceName && popupServiceDescription && popupServicePrice && popupActionButton) {
-                            // Set popup content
-                            popupServiceName.textContent = serviceName;
-                            popupServiceDescription.textContent = serviceDescription;
-                            popupServicePrice.textContent = servicePrice;
-                            
-                            // Set action button based on category
-                            const category = this.getAttribute('data-category');
-                            if (category === 'training') {
-                                popupActionButton.textContent = 'Enroll Now';
-                                popupActionButton.href = '#contact';
-                            } else if (category === 'wigs' && serviceName.includes('Sales Group')) {
-                                popupActionButton.textContent = 'Join WhatsApp Group';
-                                popupActionButton.href = actionButton?.href || '#contact';
-                            } else {
-                                popupActionButton.textContent = 'Book Now';
-                                popupActionButton.href = '#contact';
-                            }
-                            
-                            // Show popup on mobile
-                            if (window.innerWidth <= 768 && servicePopup) {
-                                servicePopup.classList.add('active');
-                            }
+                        // Set action button based on category
+                        const category = this.getAttribute('data-category');
+                        if (category === 'training') {
+                            popupActionButton.textContent = 'Enroll Now';
+                            popupActionButton.href = '#';
+                            popupActionButton.onclick = function(e) {
+                                e.preventDefault();
+                                const whatsappText = `I'm interested in enrolling for: ${serviceName}`;
+                                window.open(`https://wa.me/2349076223858?text=${encodeURIComponent(whatsappText)}`, '_blank');
+                                servicePopup.classList.remove('active');
+                            };
+                        } else if (category === 'wigs' && serviceName.includes('Sales Group')) {
+                            popupActionButton.textContent = 'Join WhatsApp Group';
+                            popupActionButton.href = 'https://chat.whatsapp.com/HX9EBmWhTECFcZ7fglXqZZ';
+                            popupActionButton.onclick = function(e) {
+                                e.preventDefault();
+                                window.open('https://chat.whatsapp.com/HX9EBmWhTECFcZ7fglXqZZ', '_blank');
+                                servicePopup.classList.remove('active');
+                            };
+                        } else {
+                            popupActionButton.textContent = 'Book Now';
+                            popupActionButton.href = '#';
+                            popupActionButton.onclick = function(e) {
+                                e.preventDefault();
+                                const whatsappText = `I'd like to book an appointment for: ${serviceName}`;
+                                window.open(`https://wa.me/2349076223858?text=${encodeURIComponent(whatsappText)}`, '_blank');
+                                servicePopup.classList.remove('active');
+                            };
+                        }
+                        
+                        // Show popup on mobile
+                        if (window.innerWidth <= 768 && servicePopup) {
+                            servicePopup.classList.add('active');
                         }
                     }
                 });
             });
 
-            // Handle popup action button clicks (for mobile)
-            if (popupActionButton) {
-                popupActionButton.addEventListener('click', function(e) {
-                    if (this.href === '#contact') {
-                        e.preventDefault();
-                        const serviceName = popupServiceName?.textContent;
-                        if (serviceName) {
-                            const whatsappText = this.textContent.includes('Enroll') 
-                                ? `I'm interested in enrolling for: ${serviceName}`
-                                : `I'd like to book an appointment for: ${serviceName}`;
-                            window.open(`https://wa.me/2349076223858?text=${encodeURIComponent(whatsappText)}`, '_blank');
-                        }
-                        if (servicePopup) {
-                            servicePopup.classList.remove('active');
-                        }
-                    }
-                });
-            }
-
-            // Handle direct button clicks (for desktop)
+            // Handle action button clicks directly (for desktop)
             document.querySelectorAll('.service-card .action-button').forEach(button => {
                 button.addEventListener('click', function(e) {
-                    if (this.href === '#contact') {
-                        e.preventDefault();
-                        const serviceName = this.closest('.service-card')?.querySelector('h3')?.textContent;
-                        if (serviceName) {
-                            const whatsappText = this.textContent.includes('Enroll') 
-                                ? `I'm interested in enrolling for: ${serviceName}`
-                                : `I'd like to book an appointment for: ${serviceName}`;
-                            window.open(`https://wa.me/2349076223858?text=${encodeURIComponent(whatsappText)}`, '_blank');
-                        }
+                    e.preventDefault();
+                    const serviceName = this.getAttribute('data-service');
+                    const isTraining = this.closest('.service-card').getAttribute('data-category') === 'training';
+                    
+                    if (this.href.includes('whatsapp.com')) {
+                        // For the wig sales group button
+                        window.open(this.href, '_blank');
+                    } else if (serviceName) {
+                        const whatsappText = isTraining 
+                            ? `I'm interested in enrolling for: ${serviceName}`
+                            : `I'd like to book an appointment for: ${serviceName}`;
+                        window.open(`https://wa.me/2349076223858?text=${encodeURIComponent(whatsappText)}`, '_blank');
                     }
                 });
             });
